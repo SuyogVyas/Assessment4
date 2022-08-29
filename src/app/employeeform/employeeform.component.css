@@ -1,0 +1,19 @@
+.container {
+    
+    margin-top: 2%;
+    margin-bottom: 20px;
+
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+.row{
+    margin-bottom: 15px;
+}
+
+/* .mat-form-field{
+  padding-right: 100px;
+  width: 100%;
+} */

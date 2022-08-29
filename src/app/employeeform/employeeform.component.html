@@ -1,0 +1,295 @@
+<form [formGroup]="empForm" (ngSubmit)="submit()">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h1>Create Employee</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="col-md-3">
+
+
+
+                <mat-form-field appearance="fill">
+                    <mat-label>MiddleName</mat-label>
+                    <input formControlName="MiddleName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['MiddleName']!.errors!=null && empForm.controls['MiddleName']!.errors!['required']">
+                        <span>MiddleName is required</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>LastName</mat-label>
+                    <input formControlName="LastName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['LastName']!.errors!=null && empForm.controls['LastName']!.errors!['required']">
+                        <span>LastName is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="EmailID" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['EmailID']!.errors!=null && empForm.controls['EmailID']!.errors!['required']">
+                        <span>EmailID is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Contact Number</mat-label>
+                    <input formControlName="ContactNumber" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['ContactNumber']!.errors!=null && empForm.controls['ContactNumber']!.errors!['required']">
+                        <span>ContactNumber is required</span>
+                    </mat-error>
+                    <mat-error *ngIf = " empForm.controls['ContactNumber']!.errors!=null && empForm.get('ContactNumber')!.errors!['maxLength']">
+                        <span>Number cannot be greater than 10</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Employee Type</mat-label>
+                    <select matNativeControl formControlName="EmployeeType" value="">
+
+
+                        <option value="Contract">Contract</option>
+                        <option value="Permanent">Permanent</option>
+                    </select>
+                    <mat-error
+                        *ngIf="empForm.controls['EmployeeType']!.errors!=null && empForm.controls['EmployeeType']!.errors!['required']">
+                        <span>EmployeeType is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Pincode</mat-label>
+                    <input formControlName="Pincode" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['Pincode']!.errors!=null && empForm.controls['Pincode']!.errors!['required']">
+                        <span>Pincode is required</span>
+                    </mat-error>
+                    <mat-error *ngIf = " empForm.controls['Pincode']!.errors!=null && empForm.get('Pincode')!.errors!['maxLength'] ">
+                        <span>Pincode should not be greater than 6</span>
+                    </mat-error>
+                    
+                    
+                </mat-form-field>
+
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input formControlName="Address" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['Address']!.errors!=null && empForm.controls['Address']!.errors!['required']">
+                        <span>Address is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input matInput required [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    
+                </mat-form-field>
+                
+                
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                
+
+                <mat-label>Gender </mat-label>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <button type="submit" mat-raised-button color="primary">Create</button>
+
+            </div>
+            <div class="col-md-8">
+                <button mat-raised-button color="accent" routerLink="/list">Return to Employee List</button>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+
+<!-- <form [formGroup]="empForm" (ngSubmit)="submit()">
+    <div class="container">
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class = "col-md-5">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input formControlName="FirstName" matInput value="">
+                    <mat-error
+                        *ngIf="empForm.controls['FirstName']!.errors!=null && empForm.controls['FirstName']!.errors!['required']">
+                        <span>First name is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-10">
+                <button mat-raised-button color="accent" routerLink="/list">Return to Employee List</button>
+            </div>
+        </div>
+    </div>
+ </form> -->
